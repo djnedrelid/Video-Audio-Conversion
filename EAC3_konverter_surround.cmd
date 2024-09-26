@@ -2,7 +2,7 @@
 chcp 65001
 cd %~dp0
 cls
-title AC3 5.1 Konverter
+title EAC3 5.1 Konverter
 
 :start
 cls

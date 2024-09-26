@@ -2,7 +2,7 @@
 chcp 65001
 cd %~dp0
 cls
-title AC3 Stereo Konverter
+title EAC3 Stereo Konverter
 
 :start
 cls
