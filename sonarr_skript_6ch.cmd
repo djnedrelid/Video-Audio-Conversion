@@ -18,7 +18,7 @@ if defined sonarr_eventtype (
 		
 		:: Konverter med ffmpeg til orginalnavn.
 		set FFREPORT=file=sonarr_skript_ffmpeg_report.log:level=32
-		ffmpeg -i "%sonarr_episodefile_path%.audcon" -map 0:v -map 0:a -map 0:s? -c:v copy -c:s copy -c:a eac3 -b:a 1152k -ac 6 "%sonarr_episodefile_path%"
+		ffmpeg -i "%sonarr_episodefile_path%.audcon" -map 0:v -map 0:a -map 0:s? -c:v copy -c:s copy -c:a:0 eac3 -b:a 1536k -ac 6 -metadata:s:a:0 title="Dolby Digital+ 5.1" -c:a copy "%sonarr_episodefile_path%"
 		echo. >> sonarr_skript.log
 		
 		:: Fjern midlertidig fil.
