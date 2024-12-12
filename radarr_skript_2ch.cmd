@@ -18,7 +18,7 @@ if defined radarr_eventtype (
 		
 		:: Konverter med ffmpeg til orginalnavn.
 		set FFREPORT=file=radarr_skript_ffmpeg_report.log:level=32
-		ffmpeg -i "%radarr_moviefile_path%.audcon" -map 0:v -map 0:a -map 0:s? -c:v copy -c:s copy -c:a ac3 -b:a 640k -ac 2 -metadata:s:a title="Dolby Digital 2.0" "%radarr_moviefile_path%"
+		ffmpeg -i "%radarr_moviefile_path%.audcon" -map 0 -c:v copy -c:s copy -c:a ac3 -b:a 640k -ac 2 -af "volume=-6dB" -metadata:s:a title="Dolby Digital 2.0" "%radarr_moviefile_path%"
 		echo. >> radarr_skript.log
 		
 		:: Fjern midlertidig fil.
