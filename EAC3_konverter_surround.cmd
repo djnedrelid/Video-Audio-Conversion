@@ -11,11 +11,6 @@ echo Full path to file being converted?
 echo.
 set /p sti=:
 
-echo.
-echo Container format? mp4, mkv, etc.
-echo.
-set /p ekstensjon=:
-
 :: NOTATER:
 :: -------
 
@@ -40,9 +35,9 @@ set /p ekstensjon=:
 :: -------
 
 :: Ta med og konverter kun første spor, unngå forsøk på oppskalering. Forventes minst 5.1 kanaler input f.eks. lossless TrueHD 7.1 etc.
-ffmpeg -i %sti% -map 0:v -map 0:a:0 -map 0:s? -c:v copy -c:s copy -c:a:0 eac3 -b:a 1536k -ac 6 -af "volume=-6dB" -metadata:s:a:0 title="Dolby Digital+ 5.1" %sti%.tmp.%ekstensjon%
-
-move /y %sti%.tmp.%ekstensjon% %sti%
+move /y %sti% %sti%.audcon
+ffmpeg -i %sti%.audcon -map 0:v -map 0:a:0 -map 0:s? -c:v copy -c:s copy -c:a:0 eac3 -b:a 1536k -ac 6 -af "volume=-6dB" -metadata:s:a:0 title="Dolby Digital+ 5.1" %sti%
+del %sti%.audcon
 
 echo Done ...
 pause
