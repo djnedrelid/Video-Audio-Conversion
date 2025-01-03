@@ -14,6 +14,9 @@ set /p sti=:
 :: NOTATER:
 :: -------
 
+:: Kopiere kun ut lyd for analysering:
+:: ffmpeg -i ".\The Expanse - S01E01 - Dulcinea Bluray-1080p Remux-SiQ.mkv" -acodec copy -vn lyd.mp4
+
 :: Eksportere lyd til WAV for å sjekke klipping i audacity:
 :: ffmpeg -i "Wonder Woman (2017)\Wonder Woman_t01.mkv" -vn -f segment -segment_time 1800 -map 0:a:0 -acodec pcm_s16le ww_2ch_truehd%03d.wav
 
