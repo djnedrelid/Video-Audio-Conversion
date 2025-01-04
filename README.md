@@ -8,17 +8,17 @@ Common need is e.g. a blu-ray remux/copy where I need to convert lossless to los
 320 kbps per channel for AC3 stereo (640 kbps for 2 channels)  
 256 kbps per channel for E-AC3 surround (1536 kbps for 6 (5.1) channels).  
   
-*AC3_konverter_stereo_all_generic.cmd*  
+**AC3_konverter_stereo_all_generic.cmd**  
 Convert all tracks of given target video file.  
   
-*EAC3_konverter_5.1_firststreamonly.cmd*  
+**EAC3_konverter_5.1_firststreamonly.cmd**  
 Converts the first track only, and assumes it's at least 5.1(6 channels).  
 This script also includes some notes I've made for personal reference on ffmpeg usage.  
   
-*OPUS_konverter.cmd*  
+**OPUS_konverter.cmd**  
 Same as above, but with any number of channels from and to.  
   
-*AC3_add_3_stereo_streams_from_first_with_metadata.cmd*  
+**AC3_add_3_stereo_streams_from_first_with_metadata.cmd**  
 Adds 3 downmixed stereo tracks, based on first track of given target video file.  
 DD 2.0 Normalized - Has normalized levels.  
 DD 2.0 HigherVoice - Has increased center channel boost for dialogue.  
