@@ -40,10 +40,10 @@ goto start
 ::  - Ett med høyere center/dialog, 
 ::  - Ett med høyere center/dialog og vanlig LFE.
 :: ffmpeg.exe -i "Tenet (2020).HBYT.mkv" -map 0:a:0 -c copy 6ch.eac3
-:: ffmpeg -i 6ch.eac3 -c:a ac3 -b:a 640k -filter_complex "[0:a]pan=stereo|c0=1.0*FL+0.707*SL+0.707*FC+0.0*LFE|c1=1.0*FR+0.707*SL+0.707*FC+0.0*LFE,volume=-6dB" -metadata:s:a:0 title="DD 2.0 Normal" 2ch_normal.ac3
-:: ffmpeg -i 6ch.eac3 -c:a ac3 -b:a 640k -filter_complex "[0:a]pan=stereo|c0=1.0*FL+0.707*SL+1.0*FC+0.0*LFE|c1=1.0*FR+0.707*SL+1.0*FC+0.0*LFE,volume=-6dB" -metadata:s:a:0 title="DD 2.0 HighCenter" 2ch_highcenter.ac3
-:: ffmpeg -i 6ch.eac3 -c:a ac3 -b:a 640k -filter_complex "[0:a]pan=stereo|c0=1.0*FL+0.707*SL+1.0*FC+0.707*LFE|c1=1.0*FR+0.707*SL+1.0*FC+0.707*LFE,volume=-6dB" -metadata:s:a:0 title="DD 2.0 HighCenterLFE" 2ch_highcenterLFE.ac3
-:: ffmpeg -i "Tenet (2020).HBYT.mkv" -i 2ch_normal.ac3 -i 2ch_highcenter.ac3 -i 2ch_highcenterLFE.ac3 -map 0 -map 1:a:0 -map 2:a:0 -map 3:a:0 -c:v copy -c:a copy -c:s copy -metadata:s:a:1 title="DD 2.0 Normal" -metadata:s:a:2 title="DD 2.0 HighCenter" -metadata:s:a:3 title="DD 2.0 HighCenterLFE" "Tenet (2020).mkv"
+:: ffmpeg -i 6ch.eac3 -c:a ac3 -b:a 640k -filter_complex "[0:a]pan=stereo|c0=1.0*FL+0.707*SL+0.707*FC+0.0*LFE|c1=1.0*FR+0.707*SL+0.707*FC+0.0*LFE,volume=-6dB" -metadata:s:a:0 language=eng -metadata:s:a:0 title="DD 2.0 Normal" 2ch_normal.ac3
+:: ffmpeg -i 6ch.eac3 -c:a ac3 -b:a 640k -filter_complex "[0:a]pan=stereo|c0=1.0*FL+0.707*SL+1.707*FC+0.0*LFE|c1=1.0*FR+0.707*SL+1.707*FC+0.0*LFE,volume=-6dB" -metadata:s:a:0 language=eng -metadata:s:a:0 title="DD 2.0 HighCenter" 2ch_highcenter.ac3
+:: ffmpeg -i 6ch.eac3 -c:a ac3 -b:a 640k -filter_complex "[0:a]pan=stereo|c0=1.0*FL+0.707*SL+1.707*FC+0.707*LFE|c1=1.3*FR+0.707*SL+1.707*FC+0.707*LFE,volume=-6dB" -metadata:s:a:0 language=eng -metadata:s:a:0 title="DD 2.0 HighCenterLFE" 2ch_highcenterLFE.ac3
+:: ffmpeg -i "Tenet (2020).HBYT.mkv" -i 2ch_normal.ac3 -i 2ch_highcenter.ac3 -i 2ch_highcenterLFE.ac3 -map 0 -map 1:a:0 -map 2:a:0 -map 3:a:0 -c:v copy -c:a copy -c:s copy -metadata:s:a:0 language=eng -metadata:s:a:1 language=eng -metadata:s:a:1 title="DD 2.0 Normal" -metadata:s:a:2 language=eng -metadata:s:a:2 title="DD 2.0 HighCenter" -metadata:s:a:3 language=eng -metadata:s:a:3 title="DD 2.0 HighCenterLFE" "Tenet (2020).mkv"
 
 
 :: Eksportere lyd til WAV for å sjekke klipping i audacity:
