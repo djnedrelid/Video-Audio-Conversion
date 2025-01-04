@@ -1,8 +1,8 @@
 ﻿
 ## Video Audio Conversion  
   
-Some scripts I use for converting audio.  
-I simply run the script and give it full path to a video file to be processed.  
+Some scripts I use for converting audio. 
+I simply run the script and give it full path to a video file to be processed. 
 Common need is e.g. a blu-ray remux/copy where I need to convert lossless to lossy for better hardware compatibility.  
 
 320 kbps per channel for AC3 stereo (640 kbps for 2 channels)  
