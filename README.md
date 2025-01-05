@@ -7,25 +7,21 @@ Common need is e.g. a blu-ray remux/copy where I need to convert lossless to los
 
 320 kbps per channel for AC3 stereo (640 kbps for 2 channels)  
 256 kbps per channel for E-AC3 surround (1536 kbps for 6 (5.1) channels).  
+This is not black and white, downmix will dedicate bandwidth where needed.  
   
-**AC3_konverter_stereo_all_generic.cmd**  
-Convert all tracks of given target video file.  
-  
-**EAC3_konverter_5.1_firststreamonly.cmd**  
-Converts the first track only, and assumes it's at least 5.1(6 channels).  
-This script also includes some notes I've made for personal reference on ffmpeg usage.  
+**Convert_Audio_Manually.cmd**  
+A script made to convert a video's audio to player compatible AC3 2.0 and E-AC3 5.1  
+Uses -filter_complex to either add or replace with AC3 and E-AC3 tracks.  
+There's also the option of converting original to just a single AC3 or E-AC3 track.  
   
 **OPUS_konverter.cmd**  
-Same as above, but with any number of channels from and to.  
+A basic additional conversion script that should also keep the original number of channels.  
   
-**AC3_add_3_stereo_streams_from_first_with_metadata.cmd**  
-Adds 3 downmixed stereo tracks, based on first track of given target video file.  
-DD 2.0 Normalized - Has normalized levels.  
-DD 2.0 HigherVoice - Has increased center channel boost for dialogue.  
-DD 2.0 HigherVoiceLFE - Has increased center channel boost, but also normalized LFE.  
-With this script, you'll also be able to assign visible language metadata.  
+**DumpToWAVforAudacityClipInspection.cmd**  
+A simple script to dump any audio stream to lossless WAV for audacity digital clip inspection.  
   
 *Extract ffmpeg.rar before using any script (archived due to GitHub size limitations).*  
+  
   
 **Sonarr/Radarr**  
   
