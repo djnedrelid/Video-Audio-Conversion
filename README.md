@@ -20,6 +20,12 @@ A basic additional conversion script that should also keep the original number o
 **DumpToWAVforAudacityClipInspection.cmd**  
 A simple script to dump any audio stream to lossless WAV for audacity digital clip inspection.  
   
+**ConvertALACtoFLAC.cmd**  
+Not video related, but I included it for folder-converting ALAC files to FLAC.  
+  
+**ConvertFLACtoMP3.cmd**  
+Another music related script, folder-conversion of FLAC files to 320k CBR MP3 (libmp3lame/LAME3.100).  
+  
 *Extract ffmpeg.rar before using any script (archived due to GitHub size limitations).*  
 <br>
   
