@@ -19,6 +19,15 @@ title AC3 Stereo Converter
 :: ffmpeg -i movie.mkv -vn -f segment -segment_time 1800 -map 0:a:0 -c:a pcm_s16le movie_%03d.wav
 ::
 
+:: Sjekk om ffmpeg er tilstede.
+where ffmpeg.exe >nul 2>&1
+if errorlevel 1 (
+    echo Error: ffmpeg.exe was not found here or in PATH.
+	echo You can use the one included in ffmpeg.rar archive.
+    pause
+    exit /b
+)
+
 :start
 :: Nullstill variabler fra forrige kjøring.
 set sti=
