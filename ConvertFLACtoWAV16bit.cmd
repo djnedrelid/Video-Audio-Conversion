@@ -3,8 +3,8 @@ setlocal enabledelayedexpansion
 
 set /p "folder=Full path to folder to be converted: "
 set folder=%folder:"=%
-set output_folder=flac_files
-set loggfil=ConvertALACtoFLAC.log
+set output_folder=wav_files
+set loggfil=ConvertFLACtoWAV.log
 
 where ffmpeg.exe >nul 2>&1
 if errorlevel 1 (
@@ -18,14 +18,14 @@ if not exist "%folder%\%output_folder%" mkdir "%folder%\%output_folder%"
 
 :: Process each M4A ALAC (Apple Lossless Audio Codec) file
 del %loggfil% >nul 2>&1
-for %%f in ("%folder%\*.m4a") do (
+for %%f in ("%folder%\*.flac") do (
     :: Extract the filename without extension for the title
     set "title=%%~nf"
-    set "output=%folder%\%output_folder%\%%~nf.flac"
+    set "output=%folder%\%output_folder%\%%~nf.wav"
 
-    ffmpeg -i "%%f" -c:a flac -map_metadata 0 "!output!" -y >> %loggfil% 2>&1
+    ffmpeg -i "%%f" -c:a pcm_s16le -map_metadata 0 -write_id3v2 1 "!output!" -y >> %loggfil% 2>&1
 	echo !output! - Converted.
 )
 
-echo Conversion complete. FLAC files saved in "%folder%\%output_folder%" directory.
+echo Conversion complete. WAV files saved in "%folder%\%output_folder%" directory.
 pause

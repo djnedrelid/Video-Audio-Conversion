@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 set /p "folder=Full path to folder to be converted: "
 set folder=%folder:"=%
 set output_folder=mp3_files
-set loggfil=result.log
+set loggfil=ConvertFLACtoMP3.log
 
 where ffmpeg.exe >nul 2>&1
 if errorlevel 1 (
