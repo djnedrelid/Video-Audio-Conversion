@@ -30,7 +30,7 @@ ConvertFLACtoWAV16bit.cmd  (w/ID3v2 tags).
 **ConvertFLACtoMP3.cmd**  
 Another music related script, folder-conversion of FLAC files to 320k CBR MP3 (libmp3lame/LAME3.100).  
   
-*Extract ffmpeg.rar before using any script (archived due to GitHub size limitations).*  
+*The release RAR archive includes the ffmpeg binary needed to run the scripts.*  
 <br>
   
 **Sonarr/Radarr**  
