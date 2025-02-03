@@ -144,7 +144,7 @@ if "%keeporigtrack%"=="no" (
 		
 		:: Higher Voices.
 		if "%convertaudioto%"=="2" (
-			set cmd=-i %sti%.audcon -map 0:v -map 0:s? -map 0:a:0 -c:v copy -c:s copy -c:a:0 ac3 -b:a:0 640k -af "pan=stereo|c0=1.0*FL+0.707*SL+%highervoiceval%*FC+%LFEstring%|c1=1.0*FR+0.707*SL+%highervoiceval%*FC+%LFEstring%,volume=-6dB" -metadata:s:a:0 language=%lang% -metadata:s:a:0 title="DD 2.0 HigherVoice" %sti%
+			set cmd=-i %sti%.audcon -map 0:v -map 0:s? -map 0:a:0 -c:v copy -c:s copy -c:a:0 ac3 -b:a:0 640k -af "pan=stereo|c0=1.0*FL+0.707*SL+0.707*BL+%highervoiceval%*FC+%LFEstring%|c1=1.0*FR+0.707*SR+0.707*BR+%highervoiceval%*FC+%LFEstring%,volume=-6dB" -metadata:s:a:0 language=%lang% -metadata:s:a:0 title="DD 2.0 HigherVoice" %sti%
 			echo %time% Converting to HigherVoice: !cmd! >> %logfile%
 			ffmpeg !cmd!
 			goto :ryddopp
@@ -160,7 +160,7 @@ if "%keeporigtrack%"=="no" (
 :: out3 = ac3 2.0
 :: https://trac.ffmpeg.org/wiki/AudioChannelManipulation#Listchannelnamesandstandardchannellayouts
 ::
-set complex_filter="[0:a:0]asplit=2[out1][out2];[out1]pan=5.1|c0=FL|c1=FR|c2=FC|c3=LFE|c4=SL+BL|c5=SR+BR,volume=-6dB[a1];[out2]pan=stereo|c0=1.0*FL+0.707*SL+%highervoiceval%*FC+%LFEstring%|c1=1.0*FR+0.707*SL+%highervoiceval%*FC+%LFEstring%,volume=-6dB[a2]"
+set complex_filter="[0:a:0]asplit=2[out1][out2];[out1]pan=5.1|c0=FL|c1=FR|c2=FC|c3=LFE|c4=SL+BL|c5=SR+BR,volume=-6dB[a1];[out2]pan=stereo|c0=1.0*FL+0.707*SL+0.707*BL+%highervoiceval%*FC+%LFEstring%|c1=1.0*FR+0.707*SR+0.707*BR+%highervoiceval%*FC+%LFEstring%,volume=-6dB[a2]"
 if "%keeporigtrack%"=="yes" (
 	set cmd=-i %sti%.audcon -filter_complex !complex_filter! -map 0:v -map 0:a:0 -map "[a1]" -map "[a2]" -map 0:s? -c:v copy -c:s copy -c:a:0 copy -c:a:1 eac3 -b:a:1 1536k -c:a:2 ac3 -b:a:2 640k -metadata:s:a:1 language=%lang% -metadata:s:a:1 title="Dolby Digital+ 5.1" -metadata:s:a:2 language=%lang% -metadata:s:a:2 title="Dolby Digital 2.0" %sti%
 	echo %time% KEEPING original track: !cmd! >> %logfile%
