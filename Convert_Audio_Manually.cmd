@@ -3,8 +3,6 @@ chcp 65001
 cd %~dp0
 setlocal enabledelayedexpansion
 :: Trenger bruk av !var! i if blokker for sanntidsevaluering.
-set logfile=Convert_Audio_Manually.log
-del %logfile% > nul 2>&1
 title AC3 Stereo Converter
 
 ::
@@ -47,6 +45,11 @@ if "!sti!"=="" (
 	set /p tryagain=Invalid input, try again [press enter]
 	goto :start
 )
+
+:: Sett opp loggfil til spesifik konvertering.
+mkdir logs >nul 2>&1
+for %%F in (!sti!) do set stifil=%%~nxF
+set logfile="logs\%stifil%_%random%%random%%random%.log"
 
 :: Spør om språk som skal angis til nye spor. Samme kilde = samme språk.
 echo.
@@ -180,6 +183,6 @@ if "%keeporigfile%"=="no" (
 	move /y %sti%.audcon %sti%.orig
 )
 
-echo Done ...
+echo Done with !sti!...
 set /p fortsett=Press enter to do another or close this window.
 goto start
